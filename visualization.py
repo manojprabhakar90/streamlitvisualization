@@ -5,6 +5,7 @@ import plotly.express as px
 import country_converter as coco
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
+import numpy as np
 
 st.write("There is always a question on the earning potential on completion of the Data Science degree. Let's start understanding the number of jobs over the past few years")
 

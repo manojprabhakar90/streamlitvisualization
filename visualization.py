@@ -214,4 +214,6 @@ st.plotly_chart(fig2)
 st.plotly_chart(fig3)
 st.plotly_chart(fig4)
 
-st.write("Location of different Grade employees. ")
+st.write("Location of different Grade employees.")
+
+st.write("Thanks for going through the notebook. Please share your review")

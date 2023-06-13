@@ -1,4 +1,5 @@
 streamlit
 plotly
 country_converter
+scipy
 

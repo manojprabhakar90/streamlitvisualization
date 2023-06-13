@@ -101,7 +101,7 @@ fig = px.bar(data1, x="employee_residence", y="salary_in_usd",color_discrete_seq
 st.plotly_chart(fig)
 
 
-remote_year = df.groupby(['work_year','remote_ratio']).size()
+remote_year = data.groupby(['work_year','remote_ratio']).size()
 ratio_2020 = np.round(remote_year[2020].values/remote_year[2020].values.sum(),2)
 ratio_2021 = np.round(remote_year[2021].values/remote_year[2021].values.sum(),2)
 ratio_2022 = np.round(remote_year[2022].values/remote_year[2022].values.sum(),2)

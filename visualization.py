@@ -6,20 +6,20 @@ import country_converter as coco
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 
-# There is always a question on the earning potential on completion of the Data Science degree. Let's start understanding the number of jobs over the past few years
+st.write("There is always a question on the earning potential on completion of the Data Science degree. Let's start understanding the number of jobs over the past few years")
 
 data = pd.read_csv("ds_salaries.csv")
 
-# We will start exploring the work year. Are the jobs increasing or decreasing
+st.write("We will start exploring the work year. Are the jobs increasing or decreasing")
 
 work_year = data['work_year'].value_counts()
 fig = px.pie(values = work_year.values, names = work_year.index, 
             title = 'Work year distribution',color_discrete_sequence=["green", "blue", "goldenrod", "magenta"])
 st.plotly_chart(fig)
 
-# Based on the chart, we could see the number of jobs have been increasing in last couple of years, even when there is recession. 
+st.write("Based on the chart, we could see the number of jobs have been increasing in last couple of years, even when there is recession.") 
 
-# Let's look at number of jobs by experience level. 
+st.write("Let's look at number of jobs by experience level.") 
 
 data['experience_level'] = data['experience_level'].replace('EN','Entry-level/Junior')
 data['experience_level'] = data['experience_level'].replace('MI','Mid-level/Intermediate')
@@ -31,9 +31,9 @@ fig = px.treemap(ex_level, path = [ex_level.index], values = ex_level.values,
                 title = 'Experience Level',color_discrete_sequence=["green", "blue", "goldenrod", "magenta"])
 st.plotly_chart(fig)
 
-# We could see that the number of jobs in Senior-level/Expert have increased when compared to entry level or at Executive level. 
+st.write("We could see that the number of jobs in Senior-level/Expert have increased when compared to entry level or at Executive level.") 
 
-# Lets look at how the salary has changed over the years. 
+st.write("Lets look at how the salary has changed over the years" )
 
 data1=data[['work_year','salary_in_usd']].groupby(['work_year']).mean().reset_index()
 fig = px.bar(data1, x="work_year", y="salary_in_usd",color_discrete_sequence=["blue"])
@@ -68,32 +68,32 @@ fig = px.bar(data1, x="work_year", y="salary_in_usd",color="experience_level",ba
 st.plotly_chart(fig)
 
 
-# As per the chart, the salary has been increasing (which is good for Entry level and Senior Data Scientists). Entry level Data Scientists salary has been increasing from 2020. 
+st.write("As per the chart, the salary has been increasing (which is good for Entry level and Senior Data Scientists). Entry level Data Scientists salary has been increasing from 2020.") 
 
-# Does Remote Jobs provide an opportunity to earn more. 
+st.write("Does Remote Jobs provide an opportunity to earn more?")
 
 fig = px.scatter(data, x="work_year", y="salary_in_usd", color="remote_ratio", marginal_y="violin",
            marginal_x="box", trendline="ols", template="simple_white")
 st.plotly_chart(fig)
 
-# our hypothesis is correct. Scatter plot has been showing an increasing trend. 
+st.write("our hypothesis is correct. Scatter plot has been showing an increasing trend.")_
 
-# Do Employment type have an impact on the salary. Do part-time/contractors get paid more? 
+st.write("Do Employment type have an impact on the salary. Do part-time/contractors get paid more?")
 
 data1=data[['employment_type','salary_in_usd']].groupby(['employment_type']).mean().reset_index()
 fig = px.bar(data1, x="employment_type", y="salary_in_usd",color_discrete_sequence=["blue"])
 st.plotly_chart(fig)
 
-# Full Time employees are paid more followed by part-time employees. 
+st.write("Full Time employees are paid more followed by part-time employees.")
 
-# Highest paid job title
+st.write(("Highest paid job title")
 
 data1=data[['job_title','salary_in_usd']].groupby(['job_title']).mean().reset_index()
 data1 = data1.sort_values(by='salary_in_usd',ascending=False)
 fig = px.bar(data1, x="job_title", y="salary_in_usd",color_discrete_sequence=["blue"])
 st.plotly_chart(fig)
 
-# Data Science Tech lead gets paid the most. 
+st.write("Data Science Tech lead gets paid the most. But it's a very small sample. So cannot come to conclusive conclusion ")
 
 data1=data[['employee_residence','salary_in_usd']].groupby(['employee_residence']).mean().reset_index()
 data1 = data1.sort_values(by='salary_in_usd',ascending=False)
@@ -127,17 +127,16 @@ fig.add_trace(go.Scatterpolar(
 
 st.plotly_chart(fig)
 
-# 2021 had maximum remote work. With companies relaxing WFH, the number of companies providing WFH have significantly reduced. 
+st.write("2021 had maximum remote work. With companies relaxing WFH, the number of companies providing WFH have significantly reduced.")
 
-# What is happening to 100% Remote work companies. Are their salaries increasing or decreasing. 
+st.write("What is happening to 100% Remote work companies. Are their salaries increasing or decreasing. ")
 
 data1=data[data['remote_ratio']==100]
 
 fig = px.scatter(data1, x="work_year", y="salary_in_usd", trendline="ols", template="simple_white")
 st.plotly_chart(fig)
 
-# We could see that the salary has been increasing YOY right from 2020 (For all Data Science related roles).
-# 
+st.write("We could see that the salary has been increasing YOY right from 2020 (For all Data Science related roles).")
 
 data1=data[['work_year','company_size','salary_in_usd']].groupby(['work_year','company_size']).mean().reset_index()
 fig = px.bar(data1, x="work_year", y="salary_in_usd",color="company_size",barmode="group",color_discrete_sequence=["red", "green", "blue", "goldenrod", "magenta"])
@@ -156,7 +155,7 @@ fig = px.choropleth(locations = residence.index,
                     title = 'Employee Loaction On Map')
 st.plotly_chart(fig)
 
-# Most of the Employee locations are based out of US
+st.write("Most of the Employee locations are based out of US as number of employees in US is also high")
 work_2020 = data.loc[(data['work_year'] == 2020)]
 work_2021 = data.loc[(data['work_year'] == 2021)]
 work_2022 = data.loc[(data['work_year'] == 2022)]
@@ -181,7 +180,7 @@ fig2 = go.Figure(data=px.bar(x = year_salary.columns,
 fig1.update_layout(title = 'Salary Distribution based on Work Year')
 st.plotly_chart(fig1)
 
-# Salary distribution based on year. 
+st.write("Salary distribution based on year. ")
 
 country = coco.convert(names = data['company_location'], to = "ISO3")
 data['company_location'] = country
@@ -214,4 +213,6 @@ st.plotly_chart(fig2)
 st.plotly_chart(fig3)
 st.plotly_chart(fig4)
 
-# Location of different Grade employees. 
+st.write("Location of different Grade employees. ")
+
+st.write("Thanks for going through the streamlit and Plotly implementation. Please share your feedback")

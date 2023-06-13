@@ -88,13 +88,6 @@ st.write("Full Time employees are paid more followed by part-time employees.")
 
 st.write(("Highest paid job title")
 
-data1=data[['job_title','salary_in_usd']].groupby(['job_title']).mean().reset_index()
-data1 = data1.sort_values(by='salary_in_usd',ascending=False)
-fig = px.bar(data1, x="job_title", y="salary_in_usd",color_discrete_sequence=["blue"])
-st.plotly_chart(fig)
-
-st.write("Data Science Tech lead gets paid the most. But it's a very small sample. So cannot come to conclusive conclusion ")
-
 data1=data[['employee_residence','salary_in_usd']].groupby(['employee_residence']).mean().reset_index()
 data1 = data1.sort_values(by='salary_in_usd',ascending=False)
 fig = px.bar(data1, x="employee_residence", y="salary_in_usd",color_discrete_sequence=["blue"])

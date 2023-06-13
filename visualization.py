@@ -76,7 +76,7 @@ fig = px.scatter(data, x="work_year", y="salary_in_usd", color="remote_ratio", m
            marginal_x="box", trendline="ols", template="simple_white")
 st.plotly_chart(fig)
 
-st.write("our hypothesis is correct. Scatter plot has been showing an increasing trend.")_
+st.write("our hypothesis is correct. Scatter plot has been showing an increasing trend.")
 
 st.write("Do Employment type have an impact on the salary. Do part-time/contractors get paid more?")
 

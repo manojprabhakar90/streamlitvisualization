@@ -76,7 +76,7 @@ fig = px.scatter(data, x="work_year", y="salary_in_usd", color="remote_ratio", m
            marginal_x="box", trendline="ols", template="simple_white")
 st.plotly_chart(fig)
 
-st.write("our hypothesis is correct. Scatter plot has been showing an increasing trend.")
+st.write("our hypothesis is correct. Scatter plot has been showing an increasing trend.")_
 
 st.write("Do Employment type have an impact on the salary. Do part-time/contractors get paid more?")
 
@@ -86,7 +86,14 @@ st.plotly_chart(fig)
 
 st.write("Full Time employees are paid more followed by part-time employees.")
 
-st.write(("Highest paid job title")
+st.write("Highest paid job title")
+
+data1=data[['job_title','salary_in_usd']].groupby(['job_title']).mean().reset_index()
+data1 = data1.sort_values(by='salary_in_usd',ascending=False)
+fig = px.bar(data1, x="job_title", y="salary_in_usd",color_discrete_sequence=["blue"])
+st.plotly_chart(fig)
+
+st.write("Data Science Tech lead gets paid the most. But it's a very small sample. So cannot come to conclusive conclusion ")
 
 data1=data[['employee_residence','salary_in_usd']].groupby(['employee_residence']).mean().reset_index()
 data1 = data1.sort_values(by='salary_in_usd',ascending=False)
@@ -207,5 +214,3 @@ st.plotly_chart(fig3)
 st.plotly_chart(fig4)
 
 st.write("Location of different Grade employees. ")
-
-st.write("Thanks for going through the streamlit and Plotly implementation. Please share your feedback")

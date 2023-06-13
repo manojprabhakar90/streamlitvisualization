@@ -1,3 +1,15 @@
+st.write(" 
+INTRODUCTION:
+
+Goals
+Data Science - One of the Sexiest jobs of 21st century. Are we seeing the same pattern in the market as well. When the world was in remote
+
+Dataset Explaination
+The dataset I will be using for the final project is a dataset on , located here: https://www.kaggle.com/datasets/gregorut/videogamesales
+
+It includes over 16,000 games that sold at least 16,500 copies. The data points in the dataset include genre, platform, publisher, year release, and the number of sales in North America, Europe, Japan, and the entire world. This data was collected by a Kaggle member, and published on Kaggle. It is currently one of their most popular datasets on the topic of video games.
+         ")
+
 import streamlit as st
 import pandas as pd
 import time

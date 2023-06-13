@@ -3,3 +3,4 @@ plotly
 country_converter
 scipy
 statsmodels
+numpy
